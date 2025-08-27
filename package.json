@@ -1,0 +1,49 @@
+{
+  "name": "auto-commit",
+  "version": "1.0.0",
+  "description": "AI-powered git commit message generator supporting multiple LLM providers",
+  "main": "dist/index.js",
+  "bin": {
+    "auto-commit": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "llm",
+    "conventional-commits",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
+    "js-yaml": "^4.1.0",
+    "simple-git": "^3.20.0",
+    "fs-extra": "^11.1.1",
+    "chalk": "^4.1.2",
+    "ai": "^3.4.0",
+    "@ai-sdk/openai": "^0.0.66",
+    "@ai-sdk/anthropic": "^0.0.54",
+    "@ai-sdk/google": "^0.0.52",
+    "ollama": "^0.5.9"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/js-yaml": "^4.0.8",
+    "@types/fs-extra": "^11.0.4",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
