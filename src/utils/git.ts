@@ -29,10 +29,29 @@ export class GitManager {
       const diffs: GitDiff[] = [];
       for (const file of stagedFiles) {
         try {
-          const diff = await this.git.diff(['--cached', file]);
+          // Get compact diff with limited context
+          const diff = await this.git.diff([
+            '--cached', 
+            '--no-color',
+            '--unified=2',  // Reduce context lines
+            '--stat',       // Add file statistics
+            file
+          ]);
+          
+          // Also get a summary diff for very large files
+          const shortDiff = await this.git.diff([
+            '--cached',
+            '--stat',
+            '--summary',
+            file
+          ]);
+          
+          // If diff is too large, use summary instead
+          const finalDiff = diff.length > 10000 ? shortDiff : diff;
+          
           diffs.push({
             file,
-            changes: diff
+            changes: finalDiff
           });
         } catch (error) {
           console.warn(`Failed to get diff for file: ${file}`, error);

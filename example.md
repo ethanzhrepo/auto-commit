@@ -68,12 +68,15 @@ Add simple JavaScript file that logs hello world message to console.
 
 ## Supported Providers
 
-- **OpenAI**: GPT-4, GPT-3.5-turbo, etc.
-- **Anthropic**: Claude 3 models
-- **Google**: Gemini models  
-- **DeepSeek**: DeepSeek Chat, DeepSeek Coder
-- **Qwen**: Qwen Turbo, Plus, Max
-- **Ollama**: Local models (no API key required)
+- **OpenAI**: GPT-4, GPT-3.5-turbo, etc. ✅ *Dynamic model list*
+- **Anthropic**: Claude 3/4 models ✅ *Dynamic model list*
+- **Google**: Gemini 1.5/2.0/2.5 models ✅ *Dynamic model list*
+- **DeepSeek**: DeepSeek Chat, DeepSeek Coder ✅ *Dynamic model list*
+- **Qwen**: Qwen Turbo, Plus, Max 📋 *Predefined list*
+- **Ollama**: Local models (no API key required) ✅ *Dynamic model list*
+
+✅ = Models are fetched dynamically from API  
+📋 = Uses predefined model list
 
 ## Configuration File
 
