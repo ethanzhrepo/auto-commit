@@ -1,5 +1,5 @@
 {
-  "name": "auto-commit",
+  "name": "@whiteriverbay/auto-commit",
   "version": "1.0.0",
   "description": "AI-powered git commit message generator supporting multiple LLM providers",
   "main": "dist/index.js",
@@ -20,7 +20,7 @@
     "conventional-commits",
     "cli"
   ],
-  "author": "",
+  "author": "WhiteRiverBay",
   "license": "ISC",
   "dependencies": {
     "commander": "^11.1.0",
@@ -46,5 +46,13 @@
   },
   "engines": {
     "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ethanzhrepo/auto-commit.git"
+  },
+  "homepage": "https://github.com/ethanzhrepo/auto-commit",
+  "bugs": {
+    "url": "https://github.com/ethanzhrepo/auto-commit/issues"
   }
 }

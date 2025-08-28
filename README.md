@@ -16,12 +16,12 @@ According to git staged content, AI summarizes changes and generates commit mess
 ## 🚀 Installation
 
 ```bash
-npm install -g auto-commit
+npm install -g @whiteriverbay/auto-commit
 ```
 
 Or use directly with npx:
 ```bash
-npx auto-commit
+npx @whiteriverbay/auto-commit
 ```
 
 ## 📖 Usage
@@ -224,7 +224,7 @@ export GOOGLE_GENERATIVE_AI_API_KEY="your-key"
 ### Local Development
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/ethanzhrepo/auto-commit.git
 cd auto-commit
 
 # Install dependencies
@@ -294,9 +294,9 @@ auto-commit config
 
 ### Getting Help
 
-- 🐛 [Report Issues](https://github.com/your-repo/auto-commit/issues)
-- 💬 [Discussions](https://github.com/your-repo/auto-commit/discussions)
-- 📧 Support: your-email@domain.com
+- 🐛 [Report Issues](https://github.com/ethanzhrepo/auto-commit/issues)
+- 💬 [Discussions](https://github.com/ethanzhrepo/auto-commit/discussions)
+- 📧 Support: GitHub Issues
 
 ---
 
