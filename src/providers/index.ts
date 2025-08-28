@@ -176,7 +176,7 @@ async function fetchOllamaModels(): Promise<string[]> {
   return response.models.map((model: any) => model.name);
 }
 
-function getMaxTokensForProvider(provider: LLMProvider): number {
+export function getMaxTokensForProvider(provider: LLMProvider): number {
   const limits = {
     openai: 4096,      // Conservative limit for GPT models
     anthropic: 8192,   // Claude models support more

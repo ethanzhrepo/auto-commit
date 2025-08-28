@@ -1,8 +1,9 @@
 import chalk from 'chalk';
 import { GitManager } from '../utils/git';
 import { loadConfig } from '../utils/config';
-import { generateCommitPrompt } from '../utils/prompt';
-import { generateCommitMessage } from '../providers';
+import { generateAdaptivePrompt } from '../utils/prompt';
+import { generateCommitMessage, getMaxTokensForProvider } from '../providers';
+import { DiffProcessor } from '../utils/diffProcessor';
 
 export async function commitCommand(): Promise<void> {
   try {
@@ -44,12 +45,28 @@ export async function commitCommand(): Promise<void> {
       process.exit(0);
     }
 
-    // Generate prompt for LLM
-    const prompt = generateCommitPrompt(stagedChanges);
-    
     console.log(chalk.blue('🤖 Generating commit message using AI...'));
     console.log(chalk.dim(`Provider: ${config.provider}`));
     console.log(chalk.dim(`Model: ${config.model}`));
+
+    // Initialize token-aware processing
+    const diffProcessor = new DiffProcessor();
+    const maxTokens = getMaxTokensForProvider(config.provider);
+    
+    console.log(chalk.dim(`Token limit: ${maxTokens.toLocaleString()}`));
+    
+    // Process diffs with intelligent compression
+    const processedDiff = await diffProcessor.processDiffs(
+      stagedChanges,
+      maxTokens,
+      config.provider
+    );
+    
+    console.log(chalk.dim(`Compression level: ${processedDiff.level}`));
+    console.log(chalk.dim(`Diff tokens: ${processedDiff.tokenCount.toLocaleString()}`));
+    
+    // Generate adaptive prompt based on compression level
+    const prompt = generateAdaptivePrompt(processedDiff, config.provider);
 
     // Generate commit message using AI
     const response = await generateCommitMessage(config, prompt);
